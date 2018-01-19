@@ -22,12 +22,13 @@ services:
       - ${APACHE_PORT}:80
     links:
       - oxid6_mailhog:mail.server
-      
+
   oxid6_mysql:
     image: mysql:5.7
     hostname: mysql.${DOMAIN}
     volumes:
       - ${PWD}/data/mysql/:/var/lib/mysql
+      - ./container/mysql/my.cnf:/etc/mysql/conf.d/z_my.cnf
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}

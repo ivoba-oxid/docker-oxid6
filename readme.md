@@ -18,7 +18,6 @@ This setup bootstraps an dockerized developer environment for [OXID eShop 6](htt
 ```bash
 # clone repository:
 git clone https://github.com/ivoba-oxid/docker-oxid6.git docker_oxid6
-cd docker_oxid6/docker
 # create containers and log into web container
 ./docker.sh -l
 ```

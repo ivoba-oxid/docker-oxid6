@@ -6,7 +6,7 @@ ENV HOME /var/www
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBIAN_CODENAME stretch
 
-# timezone / date   
+# timezone / date
 RUN echo "Europe/Berlin" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 # install packages
@@ -53,7 +53,7 @@ RUN git clone git://github.com/robbyrussell/oh-my-zsh.git /var/www/.oh-my-zsh
 COPY ./files/install_composer.sh /var/www/install_composer.sh
 RUN sh /var/www/install_composer.sh
 
-RUN chgrp -R www-data /var/www \
+RUN chown -R www-data:www-data /var/www \
     && chmod -R g+rwx /var/www
 
 # oxid stuff

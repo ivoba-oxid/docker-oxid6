@@ -2,6 +2,12 @@
 This setup bootstraps an dockerized developer environment for [OXID eShop 6](https://github.com/OXID-eSales/oxideshop_ce).
 
 **Currently WIP !!**
+### Todo
+- add .env.dist
+- move to docker dir
+- dont install oxid from Dockerfile
+  install from within container
+  because of permissions
 
 ## Overview
 

@@ -13,32 +13,31 @@ This setup bootstraps an dockerized developer environment for [OXID eShop 6](htt
 - OXID demo data
 
 ## Quickstart
-1. Install [docker enginge](https://docs.docker.com/engine/installation/)
-2. Create your project folder
+1. Create your project folder
 ```bash
 mkdir myproject
 cd myproject
 ```
-3. Clone project to docker directory in your project.
+2. Clone project to docker directory in your project.
 ```bash
 # clone repository:
-git clone --depth=1 https://github.com/ivoba-oxid/docker-oxid6.git docker_oxid6 ./docker && rm -rf ./docker/.git
+git clone --depth=1 https://github.com/ivoba-oxid/docker-oxid6.git ./docker && rm -rf ./docker/.git
 ```
-4. Copy and edit the .env file for your needs
+3. Copy and edit the .env file for your needs
 ```bash
 cp docker/.env.dist docker/.env
 ```
-5. Startup containers
+4. Startup containers
 ```bash
 cd docker
 # create containers and log into web container
 ./docker.sh -l
 ```
-6. Install Oxid Shop from inside the container
+5. Install Oxid Shop from inside the container
 ```bash
 ./docker/scripts/install-oxid.sh
 ```
-7. Run OXID shop
+6. Run OXID shop
 - Shop: `http://localhost:8012` or whatever port is set in APACHE_PORT
 - Shop admin `http://localhost:8012/admin/`, credentials: `admin / admin`
 - MailHog: `http://localhost:8025`

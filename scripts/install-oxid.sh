@@ -9,7 +9,6 @@ MYSQL_HOST=mysql.${HOSTNAME}
 # bootstrap oxid files/project
 if [ ! -f /var/www/html/source/config.inc.php ]
 then
-	# composer create-project --keep-vcs oxid-esales/oxideshop-project /var/www/html ${OXID_VERSION}
 	composer create-project --no-dev oxid-esales/oxideshop-project ${HOSTNAME} ${OXID_VERSION}
   mv ${HOSTNAME}/*(D) /var/www/html/
 	rm -rf ${HOSTNAME}
@@ -41,3 +40,4 @@ then
 else
 	echo "---Database already exists---"
 fi
+echo "***Setup complete***"

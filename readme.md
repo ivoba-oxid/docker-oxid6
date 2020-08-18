@@ -43,6 +43,18 @@ cd docker
 - MailHog: `http://localhost:8025`
 - phpMyAdmin: `http://localhost:8080`
 
+## Usage
+
+For development start up the containers:
+
+    cd docker
+    ./docker.sh -l
+
+You will be automatically logged in to the PHP container.  
+Then you can run all cli commands inside the container.  
+For example all composer commands when installing new modules or oxid commands like `vendor/bin/oe-console oe:module:activate`.  
+You will not run into permission problems then.  
+
 ### Data
 - Data (`www` and `mysql`) is stored on host: `docker/data` directory
 

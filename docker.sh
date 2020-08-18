@@ -23,7 +23,7 @@ set -o allexport
 source .env
 set +o allexport
 
-containerName=$CONTAINER_NAME
+containerName=apache.$HOSTNAME
 
 ##Update Apache UID
 uid=$(id -u)
@@ -41,11 +41,11 @@ docker-compose up $upOption
 docker cp --follow-link ~/.ssh $containerName:/var/www/
 docker exec $containerName chown -R www-data /var/www/.ssh
 
+##composer selfupdate
+docker exec -it $containerName composer selfupdate
+
 ##make ssh files accessable for www-data
 docker exec -it $containerName chown -R www-data:www-data /var/www/.ssh
-
-##composer selfupdate
-docker exec -it -u www-data $containerName composer selfupdate
 
 if [ $login = true ]; then
 	docker exec -it -u www-data $containerName zsh

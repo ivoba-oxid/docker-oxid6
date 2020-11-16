@@ -27,6 +27,12 @@ RUN apt-get update \
   && apt-get clean \
   && apt-get autoremove -y
 
+#Configure xdebug.
+RUN sed -i '1 a xdebug.remote_autostart=true' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.remote_connect_back=1 ' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.remote_enable=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.max_nesting_level = 1200' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 # apache stuff
 RUN /usr/sbin/a2enmod rewrite && /usr/sbin/a2enmod headers && /usr/sbin/a2enmod expires
 COPY ./files/000-default.conf /etc/apache2/sites-available/000-default.conf

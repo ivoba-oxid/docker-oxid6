@@ -55,6 +55,16 @@ Then you can run all cli commands inside the container.
 For example all composer commands when installing new modules or oxid commands like `vendor/bin/oe-console oe:module:activate`.  
 You will not run into permission problems then.  
 
+## Enabling xDebug in phpStorm
+- Add Configuration
+- PHP Remote Debug
+- IDE key: XDEBUG_IDEA
+- Server: add new server:  
+  localhost:8012 - Xdebug  
+  use path mappings, Absolute path on the server: var/www/html
+- In phpStorm: Start listening for PHP Debug Connections
+- In browser: start debug session by adding the XDEBUG_IDEA param to URL or cookie.
+   
 ### Data
 - Data (`www` and `mysql`) is stored on host: `docker/data` directory
 

@@ -42,7 +42,7 @@ docker cp --follow-link ~/.ssh $containerName:/var/www/
 docker exec $containerName chown -R www-data /var/www/.ssh
 
 ##composer selfupdate
-docker exec -it $containerName composer selfupdate
+docker exec -it $containerName composer selfupdate --1
 
 ##composer cache permissions
 docker exec -it $containerName mkdir -p /var/www/cache
